@@ -10,8 +10,13 @@ images and individual video frames, our proposed frame-wise transformer architec
 Conversion of Infra-Red image to binary label of fire locations:
 
 <div align="center">
-  <img width="100%" alt="Data-Prepocessing" src="Images/gt_extract.png">
+  <img width="80%" alt="Data-Prepocessing" src="Images/gt_extract.png">
 </div>
+
+Image Processing steps: IR Image → Smooth Image (5 × 5 AvgPool) → Hard
+Thresholding → Dilation (5×5, 2 times) → Fill (flood fill) →
+Erosion (5 × 5, 1 time) → Remove small objects (200 pixel)
+→ Ground Truth.
 
 ## Usage
 
