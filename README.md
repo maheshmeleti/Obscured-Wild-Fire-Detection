@@ -6,5 +6,12 @@ images and individual video frames, our proposed frame-wise transformer architec
 
 <!-- The proposed method demonstrates remarkable results with a Segmentation Foreground Dice score of 92.61% and Object Detection Precision and Recall rates of 93.21% and 91.73%, respectively. The repository includes the implementation of our frame-wise transformer architecture, dataset preparation scripts, and model evaluation tools. Join us in revolutionizing wildfire detection with cutting-edge Deep Learning techniques! -->
 
+## Data Pre-Processing
+Conversion of Infra-Red image to binary label of fire locations:
+
+<div align="center">
+  <img width="100%" alt="Data-Prepocessing" src="Images/gt_extract.png">
+</div>
+
 ## Usage
 
