@@ -10,7 +10,7 @@ This work has been published in [DCOSS-IOT2024](https://dcoss.org/dcoss24/)
 
 Paper link
 https://ieeexplore.ieee.org/abstract/document/10621462
-### Transformer based architecture for segmenting obscured file locations in videos
+### Transformer based architecture for segmenting obscured fire locations in videos
 
 <div align="center">
   <img width="90%" alt="Data-Prepocessing" src="Images/arch (1).png">
