@@ -1,8 +1,8 @@
 #!/bin/bash
 #
-#PBS -N trainer
-#PBS -l select=1:ncpus=16:mpiprocs=16:ngpus=1:gpu_model=a100:mem=64gb:interconnect=hdr,walltime=36:00:00
-#PBS -o trainer_consistent.txt
+#PBS -N DS_cvt_PN
+#PBS -l select=1:ncpus=16:mpiprocs=16:ngpus=2:gpu_model=a100:mem=64gb:interconnect=hdr,walltime=15:00:00
+#PBS -o DS_cvt_PN.txt
 #PBS -j oe
 
 nvidia-smi

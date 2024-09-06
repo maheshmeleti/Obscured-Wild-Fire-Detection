@@ -18,5 +18,11 @@ Thresholding → Dilation (5×5, 2 times) → Fill (flood fill) →
 Erosion (5 × 5, 1 time) → Remove small objects (200 pixel)
 → Ground Truth.
 
+'''
+from code.preprocessing import preprocessing
+
+preprocessing.
+
+'''
 ## Usage
 

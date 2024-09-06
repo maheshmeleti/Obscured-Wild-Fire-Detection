@@ -31,10 +31,15 @@ class Trainer():
         self.scheduler = scheduler
         self.check_point_freq = check_point_freq
         self.scaler = GradScaler()
+        self.max_loss = 1000000
         
     def run_trainer(self):
         
+        self.model = torch.nn.DataParallel(self.model)
+        
         self.model.to(self.device)
+
+
         print('Training Started....')
         with open(os.path.join(self.outsave_path, "Train Logs.txt"), "a") as f:
                 f.write('Training Started....\n')
@@ -55,8 +60,14 @@ class Trainer():
             with open(os.path.join(self.outsave_path, "Train Logs.txt"), "a") as f:
                 f.write(log_string)
             print(log_string)
-            if epoch%self.check_point_freq:
-                torch.save(self.model.state_dict(),os.path.join(self.check_points_path, 'epoch-{} loss-{:.6f}.pth'.format(epoch, epoch_loss)))
+
+            if epoch_loss < self.max_loss:
+               torch.save(self.model.state_dict(),os.path.join(self.check_points_path, 'epoch-{} loss-{:.6f}.pth'.format(epoch, epoch_loss)))
+               self.max_loss = epoch_loss
+
+            
+            #if epoch%self.check_point_freq:
+            #    torch.save(self.model.state_dict(),os.path.join(self.check_points_path, 'epoch-{} loss-{:.6f}.pth'.format(epoch, epoch_loss)))
 
             if epoch_loss < 0.09: # stopping criteria
                 break

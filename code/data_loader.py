@@ -55,17 +55,14 @@ class SeqDataLoader(Dataset):
             img_rgb = img_rgb/255.0
             img_rgb = np.rollaxis(img_rgb, -1, 0)
             rgbFrames[:, count, :, :] = (img_rgb)
-
-            segpth = os.path.join(self.AnnPath, selectFolder + '/' + frames[i] + '.png')
-            mask = cv2.imread(segpth)
-            mask = cv2.cvtColor(mask, cv2.COLOR_BGR2GRAY)
-            mask = cv2.resize(mask, (512, 512), interpolation=cv2.INTER_NEAREST)
-            maskedSegFrame[:,count,:,:] = mask/255.0
-            merged_label = self.majority_label(maskedSegFrame)
-            label = self.binarylabel(merged_label.squeeze(0), [0, 255])
-            label = np.rollaxis(label, -1, 0)
-            final_label[:,0,:,:] = label
             
+        segpth = os.path.join(self.AnnPath, selectFolder+'.png')
+        mask = cv2.imread(segpth)
+        mask = cv2.cvtColor(mask, cv2.COLOR_BGR2GRAY)
+        label = self.binarylabel(mask, [0, 255])
+        label = np.rollaxis(label, -1, 0)
+        final_label[:,0,:,:] = label
+
         maskedSegFrame = torch.from_numpy(final_label)
         rgbFrames = torch.from_numpy(rgbFrames)
         
