@@ -47,7 +47,7 @@ ground_truth = preprocessing.IR2Label(input_image_array)
 ###
 
 #### Training
- 
+Inside code 
 ```
 python train.py
 ```
