@@ -1,9 +1,3 @@
-'''
-Created on 23-Jul-2019
-
-@author: e32199
-'''
-
 import cv2
 import numpy as np
 
